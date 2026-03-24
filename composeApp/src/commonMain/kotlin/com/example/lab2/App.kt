@@ -13,16 +13,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 
 import lab2.composeapp.generated.resources.Res
+import beginningkotlinmultiplatform.composeapp.generated.resources.audiowide_regular
 import lab2.composeapp.generated.resources.compose_multiplatform
 import co.touchlab.kermit.Logger
+import org.jetbrains.compose.resources.Font
+import ua.edu.chnu.kkn.beginningkotlinmultiplatform.ui.theme.AppTheme
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    AppTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
@@ -44,7 +50,15 @@ fun App() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Current time: $currentTime")
+                    Text(
+                        text = "Current time: $currentTime",
+                        style = TextStyle(
+                            fontSize = 28.sp,
+                            fontFamily = FontFamily(
+                                Font(Res.font.audiowide_regular)
+                            ),
+                        )
+                    )
                 }
             }
         }
